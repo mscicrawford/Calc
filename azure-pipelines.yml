@@ -25,6 +25,11 @@ steps:
 - script: 'ls $(System.DefaultWorkingDirectory)'
 - script: 'ls $(System.DefaultWorkingDirectory)/**'
 
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
