@@ -25,7 +25,6 @@ steps:
 - script: 'ls $(System.DefaultWorkingDirectory)'
 - script: 'ls $(System.DefaultWorkingDirectory)/**'
 
-
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
