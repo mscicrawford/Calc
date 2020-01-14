@@ -22,11 +22,15 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
+- script: 'ls $(System.DefaultWorkingDirectory)'
+- script: 'ls $(System.DefaultWorkingDirectory)/**'
+
+
 - task: PublishCodeCoverageResults@1
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/**/site/cobertura/coverage.xml'
-    pathToSources: '$(System.DefaultWorkingDirectory)/**/**/src/main/java/'
+    pathToSources: '$(System.DefaultWorkingDirectory)/**/src/main/java/'
     reportDirectory: '$(System.DefaultWorkingDirectory)/**/**/site/cobertura'
 
 - task: PublishBuildArtifacts@1
