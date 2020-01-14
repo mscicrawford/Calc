@@ -35,6 +35,13 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/**/site/cobertura/coverage.xml'
 
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'AzureSonar'
+    scannerMode: 'Other'
+- task: SonarQubeAnalyze@4
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
